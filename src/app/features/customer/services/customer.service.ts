@@ -20,7 +20,7 @@ export class CustomerService {
   // 1. Lấy danh sách món ăn từ Backend
   getMenu(): Observable<MonAn[]> {
     // Lưu ý: Đổi chữ 'monan' thành đúng tên Controller Backend của bạn cậu nhé
-    return this.http.get<MonAn[]>(`${this.apiUrl}/monan`); 
+    return this.http.get<MonAn[]>(`${this.apiUrl}/MonAn`); 
   }
 
   // 2. Thêm món vào giỏ hàng
@@ -49,7 +49,7 @@ export class CustomerService {
 
   // 5. Gửi đơn hàng lên Backend (Truyền cho Tiến xử lý tiếp)
   placeOrder(order: OrderRequest): Observable<any> {
-    return this.http.post(`${this.apiUrl}/donhang/create`, order);
+    return this.http.post(`${this.apiUrl}/DonHang/create`, order);
   }
 
   // 6. Xóa sạch giỏ hàng sau khi đặt thành công

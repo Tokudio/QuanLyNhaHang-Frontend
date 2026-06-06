@@ -16,11 +16,9 @@ export interface CartItem {
 
 // Model gửi lên Backend khi đặt hàng
 export interface OrderRequest {
-  loaiDonHang: string; // "Tại quán" hoặc "Mang về"
-  phuongThucThanhToan: string; 
-  chiTietDonHang: {
-    maMonAn: number;
-    soLuong: number;
-    giaLucDat: number;
-  }[];
+  loaiDonHang: string;
+  phuongThucThanhToan: string;
+  maBan?: number | null;  // Thêm
+  ghiChu?: string;        // Thêm
+  chiTietDonHang: any[];
 }
