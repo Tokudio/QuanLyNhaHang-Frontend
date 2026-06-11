@@ -3,7 +3,8 @@ import { LoginComponent } from './features/auth/login/login';
 import { RegisterComponent } from './features/auth/register/register'; 
 import { CustomerMenuComponent } from './features/customer/components/menu/customer-menu.component';
 import { StaffDashboardComponent } from './features/staff/dashboard/staff-dashboard.component';
-
+import { PaymentFailedComponent } from './features/customer/pages/payment-failed/payment-failed';
+import { PaymentSuccessComponent } from './features/customer/pages/payment-success/payment-success';
 // THÊM DÒNG NÀY: Import authGuard mà bạn đã tạo ở Phần 2
 import { authGuard } from './core/guards/auth.guard'; // Điều chỉnh lại đường dẫn cho đúng vị trí file của bạn
 
@@ -31,7 +32,15 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { roles: ['Admin', 'Nhà bếp', 'Phục vụ'] }
   },
-
+  // ĐƯA 2 ROUTE THANH TOÁN LÊN TRÊN NÀY ĐỂ ANGULAR ĐỌC ĐƯỢC
+  { 
+    path: 'payment-success', 
+    component: PaymentSuccessComponent 
+  },
+  { 
+    path: 'payment-failed', 
+    component: PaymentFailedComponent 
+  },
   // 2. ROUTE MẶC ĐỊNH (Khi người dùng gõ localhost:4200)
   // Nếu bạn muốn vừa vào trang web là bắt Đăng nhập ngay, hãy sửa 'menu' thành 'login'
   { 
@@ -45,4 +54,6 @@ export const routes: Routes = [
     path: '**', 
     redirectTo: 'login' 
   }
+
+  
 ];
